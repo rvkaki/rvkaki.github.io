@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./scripts/preload.js"></script>
+    <script src="./scripts/dropdown.js"></script>
+    <script src="./scripts/modal.js"></script>
+    <script defer src="./scripts/darkmode.js"></script>
+    <script
+      src="https://kit.fontawesome.com/36ca750eee.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Ricardo Vieira</title>
+  </head>
+
+  <body class="light">
+    <header class="sticky">
+      <nav class="nav-links">
+        <li class="list-link"><a class="nav-link" href="#about">About</a></li>
+        <li class="list-link">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="list-link">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+      </nav>
+      <label class="switch">
+        <input type="checkbox" onclick="toggleDarkMode(this.checked)" />
+        <span class="slider round"></span>
+      </label>
+    </header>
+
+    <main>
+      <section class="presentation">
+        <div class="cover">
+          <img src="./images/profile.jpg" alt="Profile" />
+        </div>
+        <div class="intro-text">
+          <h1>Hi, I'm Ricardo</h1>
+          <p>I'm a Computer Science graduate and an aspiring Web Developer.</p>
+          <p>
+            I currently live in Portugal and I like everything related to
+            basketball and music.
+          </p>
+        </div>
+      </section>
+      <section id="about" class="about">
+        <h1>About</h1>
+        <div>
+          <p>
+            My name is Ricardo Vieira, I'm a 22 year old Computer Science
+            graduate from Braga, Portugal and I'm passionate about Mobile and
+            Web Development.
+          </p>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At,
+            maiores dolorem soluta, impedit ipsa sapiente veritatis asperiores
+            omnis, pariatur in necessitatibus labore? Sapiente tempore
+            voluptates excepturi, cumque nesciunt ipsum. Accusamus!
+          </p>
+        </div>
+      </section>
+      <section id="skills" class="skills">
+        <h1>Skills</h1>
+        <div class="skills-container">
+          <div class="card skills-card">
+            <p>HTML</p>
+            <img src="./images/html.png" alt="HTML" />
+          </div>
+          <div class="card skills-card">
+            <p>CSS</p>
+            <img src="./images/css.png" alt="CSS" />
+          </div>
+          <div class="card skills-card">
+            <p>JavaScript</p>
+            <img src="./images/javascript.png" alt="JavaScript" />
+          </div>
+          <div class="card skills-card">
+            <p>React</p>
+            <img src="./images/react.png" alt="React" />
+          </div>
+          <div class="card skills-card">
+            <p>React Native</p>
+            <img src="./images/react.png" alt="React Native" />
+          </div>
+        </div>
+      </section>
+      <section id="projects" class="projects">
+        <h1>Projects</h1>
+        <div class="projects-container">
+          <div class="flip-card" onclick="this.classList.toggle('flip')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="./images/CardMaker.png" alt="CardMaker" />
+              </div>
+              <div class="flip-card-back">
+                <h1>CardMaker</h1>
+                <p>Create cards with your favorite tweets or song lyrics.</p>
+                <div class="learn-more" onclick="openDropdown('CardMaker')">
+                  <span>Learn more</span>
+                  <i class="fas fa-chevron-down fa-2x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card" onclick="this.classList.toggle('flip')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="./images/AniMovies.png" alt="AniMovies" />
+              </div>
+              <div class="flip-card-back">
+                <h1>AniMovies</h1>
+                <p>Your favorite animation movies in one single place.</p>
+                <div class="learn-more" onclick="openDropdown('AniMovies')">
+                  <span>Learn more</span>
+                  <i class="fas fa-chevron-down fa-2x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card" onclick="this.classList.toggle('flip')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="./images/BasketballManager.png"
+                  alt="BasketballManager"
+                />
+              </div>
+              <div class="flip-card-back">
+                <h1>BasketballManager</h1>
+                <p>
+                  Build the perfect roster with your favorite team and win it
+                  all.
+                </p>
+                <div
+                  class="learn-more"
+                  onclick="openDropdown('BasketballManager')"
+                >
+                  <span>Learn more</span>
+                  <i class="fas fa-chevron-down fa-2x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card" onclick="this.classList.toggle('flip')">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="./images/profile.jpg"
+                  alt="Website"
+                  style="border-radius: 50%"
+                />
+              </div>
+              <div class="flip-card-back">
+                <h1>Website</h1>
+                <p>Meet Ricardo Vieira!</p>
+                <div class="learn-more" onclick="openDropdown('Website')">
+                  <span>Learn more</span>
+                  <i class="fas fa-chevron-down fa-2x"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="modal" class="modal"></div>
+        <div id="projectsDropdown" class="dropdown"></div>
+      </section>
+    </main>
+  </body>
+</html>
