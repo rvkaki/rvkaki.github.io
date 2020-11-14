@@ -133,44 +133,72 @@ nav {
   animation-iteration-count: infinite;
 }
 
+.presentation,
 .about,
 .skills,
 .projects {
-  width: 90%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  margin: auto;
-}
-
-.presentation {
   width: 100%;
   min-height: 100vh;
+  position: relative;
+}
+
+.presentation-content,
+.about-content,
+.skills-content,
+.projects-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   margin: auto;
   padding-left: 5%;
   padding-right: 5%;
+}
+
+.presentation-shape,
+.about-shape,
+.skills-shape,
+.projects-shape {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: var(--gray1);
-  clip-path: polygon(0% 10%, 65% 10%, 100% 50%, 65% 100%, 0% 100%);
   transition: background 0.5s ease-in-out;
 }
 
-body.dark .presentation {
+.presentation-shape {
+  clip-path: polygon(0% 10%, 50% 10%, 100% 50%, 50% 100%, 0% 100%);
+}
+
+.about-shape {
+  clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 50% 100%, 0% 100%);
+}
+
+.projects-shape {
+  clip-path: polygon(0% 0%, 50% 0%, 0% 50%);
+}
+
+.skills-shape {
+  clip-path: polygon(0% 0%, 50% 0%, 100% 50%, 50% 100%, 0% 100%);
+}
+
+body.dark .presentation-shape,
+body.dark .about-shape,
+body.dark .skills-shape,
+body.dark .projects-shape {
   background: var(--gray4);
 }
 
-
-.projects {
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.about,
-.skills,
-.projects {
+.about-content,
+.skills-content,
+.projects-content {
   flex-direction: column;
   justify-content: center;
+}
+
+.about-content p {
+  text-align: center;
 }
 
 .cover {
@@ -299,6 +327,11 @@ p {
   padding: 10px;
 }
 
+body.dark .flip-card-back,
+body.dark .flip-card-front {
+  background-color: var(--gray4);
+}
+
 .learn-more {
   font-size: 2rem;
   display: flex;
@@ -320,9 +353,15 @@ p {
 
 .dropdown {
   display: none;
-  width: 100%;
-  margin: 50px auto;
+  width: 90%;
+  margin: 50px 5%;
+  background: var(--gray0);
   box-shadow: 0px 3px 5px 0 var(--shadow-color);
+  transition: background 0.5s ease-in-out, color 1s ease-in-out;
+}
+
+body.dark .dropdown {
+  background: var(--gray4);
 }
 
 .dropdown-header {
@@ -509,9 +548,21 @@ p {
     font-size: 55%;
   }
 
-  .presentation {
+  .presentation-content {
     flex-direction: column;
-    clip-path: polygon(0% 10%, 100% 0%, 100% 65%, 50% 100%, 0% 65%);
+  }
+
+  .presentation-shape {
+    clip-path: polygon(0% 10%, 100% 10%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .about-shape,
+  .projects-shape {
+    clip-path: polygon(0% 50%, 50% 100%, 100% 50%, 100% 100%, 0% 100%);
+  }
+
+  .skills-shape {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 50%);
   }
 
   .cover {
@@ -568,6 +619,10 @@ p {
 }
 
 @media screen and (max-width: 400px) {
+  html {
+    font-size: 40%;
+  }
+  
   .flip-card {
     height: 187.5px;
     width: 150px;

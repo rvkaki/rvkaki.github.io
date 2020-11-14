@@ -63,6 +63,7 @@ const projects = {
 
 const openDropdown = (id) => {
   const project = projects[id];
+  const container = document.getElementById('projects');
   const dropdown = document.getElementById('projectsDropdown');
 
   // Create dropdown header

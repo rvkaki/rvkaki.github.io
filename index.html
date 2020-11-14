@@ -31,6 +31,9 @@
         <li class="list-link">
           <a class="nav-link" href="#projects">Projects</a>
         </li>
+        <li class="list-link">
+          <a class="nav-link" href="./CV_EN.pdf" target="_blank">Resume</a>
+        </li>
       </nav>
       <label class="switch">
         <input type="checkbox" onclick="toggleDarkMode(this.checked)" />
@@ -40,139 +43,156 @@
 
     <main>
       <section class="presentation">
-        <div class="cover">
-          <img src="./images/profile.jpg" alt="Profile" />
-        </div>
-        <div class="intro-text">
-          <h1>Hi, I'm Ricardo</h1>
-          <p>I'm a Computer Science graduate and an aspiring Web Developer.</p>
-          <p>
-            I currently live in Portugal and I like everything related to
-            basketball and music.
-          </p>
+        <div class="presentation-shape"></div>
+        <div class="presentation-content">
+          <div class="cover">
+            <img src="./images/profile.jpg" alt="Profile" />
+          </div>
+          <div class="intro-text">
+            <h1>Hi, I'm Ricardo</h1>
+            <p>
+              I'm a Computer Science graduate and an aspiring Web/Mobile
+              Developer.
+            </p>
+          </div>
         </div>
       </section>
       <section id="about" class="about">
-        <h1>About</h1>
-        <div>
-          <p>
-            My name is Ricardo Vieira, I'm a 22 year old Computer Science
-            graduate from Braga, Portugal and I'm passionate about Mobile and
-            Web Development.
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At,
-            maiores dolorem soluta, impedit ipsa sapiente veritatis asperiores
-            omnis, pariatur in necessitatibus labore? Sapiente tempore
-            voluptates excepturi, cumque nesciunt ipsum. Accusamus!
-          </p>
+        <div class="about-shape"></div>
+        <div class="about-content">
+          <h1>About</h1>
+          <div>
+            <p>
+              My name is Ricardo Vieira, I'm a 22 year old Computer Science
+              graduate from Braga, Portugal, and I'm passionate about Mobile and
+              Web Development.
+            </p>
+            <p>
+              I've been a part of the number one Scouts group in Portugal since
+              I was 6 years old. There I learned a lot about teamwork and
+              leadership. Having spent 16 years learning those and other
+              important values, this year I started teaching them to the young
+              kids in the group.
+            </p>
+            <p>
+              In my free time I like to work on some personal projects,
+              listening to music, and watching anything basketball (NBA)
+              related, linking all of those whenever I can.
+            </p>
+          </div>
         </div>
       </section>
       <section id="skills" class="skills">
-        <h1>Skills</h1>
-        <div class="skills-container">
-          <div class="card skills-card">
-            <p>HTML</p>
-            <img src="./images/html.png" alt="HTML" />
-          </div>
-          <div class="card skills-card">
-            <p>CSS</p>
-            <img src="./images/css.png" alt="CSS" />
-          </div>
-          <div class="card skills-card">
-            <p>JavaScript</p>
-            <img src="./images/javascript.png" alt="JavaScript" />
-          </div>
-          <div class="card skills-card">
-            <p>React</p>
-            <img src="./images/react.png" alt="React" />
-          </div>
-          <div class="card skills-card">
-            <p>React Native</p>
-            <img src="./images/react.png" alt="React Native" />
+        <div class="skills-shape"></div>
+        <div class="skills-content">
+          <h1>Skills</h1>
+          <div class="skills-container">
+            <div class="card skills-card">
+              <p>HTML</p>
+              <img src="./images/html.png" alt="HTML" />
+            </div>
+            <div class="card skills-card">
+              <p>CSS</p>
+              <img src="./images/css.png" alt="CSS" />
+            </div>
+            <div class="card skills-card">
+              <p>JavaScript</p>
+              <img src="./images/javascript.png" alt="JavaScript" />
+            </div>
+            <div class="card skills-card">
+              <p>React</p>
+              <img src="./images/react.png" alt="React" />
+            </div>
+            <div class="card skills-card">
+              <p>React Native</p>
+              <img src="./images/react.png" alt="React Native" />
+            </div>
           </div>
         </div>
       </section>
       <section id="projects" class="projects">
-        <h1>Projects</h1>
-        <div class="projects-container">
-          <div class="flip-card" onclick="this.classList.toggle('flip')">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="./images/CardMaker.png" alt="CardMaker" />
-              </div>
-              <div class="flip-card-back">
-                <h1>CardMaker</h1>
-                <p>Create cards with your favorite tweets or song lyrics.</p>
-                <div class="learn-more" onclick="openDropdown('CardMaker')">
-                  <span>Learn more</span>
-                  <i class="fas fa-chevron-down fa-2x"></i>
+        <div class="projects-shape"></div>
+        <div class="projects-content">
+          <h1>Projects</h1>
+          <div class="projects-container">
+            <div class="flip-card" onclick="this.classList.toggle('flip')">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="./images/CardMaker.png" alt="CardMaker" />
+                </div>
+                <div class="flip-card-back">
+                  <h1>CardMaker</h1>
+                  <p>Create cards with your favorite tweets or song lyrics.</p>
+                  <div class="learn-more" onclick="openDropdown('CardMaker')">
+                    <span>Learn more</span>
+                    <i class="fas fa-chevron-down fa-2x"></i>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="flip-card" onclick="this.classList.toggle('flip')">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="./images/AniMovies.png" alt="AniMovies" />
-              </div>
-              <div class="flip-card-back">
-                <h1>AniMovies</h1>
-                <p>Your favorite animation movies in one single place.</p>
-                <div class="learn-more" onclick="openDropdown('AniMovies')">
-                  <span>Learn more</span>
-                  <i class="fas fa-chevron-down fa-2x"></i>
+            <div class="flip-card" onclick="this.classList.toggle('flip')">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="./images/AniMovies.png" alt="AniMovies" />
+                </div>
+                <div class="flip-card-back">
+                  <h1>AniMovies</h1>
+                  <p>Your favorite animation movies in one single place.</p>
+                  <div class="learn-more" onclick="openDropdown('AniMovies')">
+                    <span>Learn more</span>
+                    <i class="fas fa-chevron-down fa-2x"></i>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="flip-card" onclick="this.classList.toggle('flip')">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="./images/BasketballManager.png"
-                  alt="BasketballManager"
-                />
-              </div>
-              <div class="flip-card-back">
-                <h1>BasketballManager</h1>
-                <p>
-                  Build the perfect roster with your favorite team and win it
-                  all.
-                </p>
-                <div
-                  class="learn-more"
-                  onclick="openDropdown('BasketballManager')"
-                >
-                  <span>Learn more</span>
-                  <i class="fas fa-chevron-down fa-2x"></i>
+            <div class="flip-card" onclick="this.classList.toggle('flip')">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img
+                    src="./images/BasketballManager.png"
+                    alt="BasketballManager"
+                  />
+                </div>
+                <div class="flip-card-back">
+                  <h1>BasketballManager</h1>
+                  <p>
+                    Build the perfect roster with your favorite team and win it
+                    all.
+                  </p>
+                  <div
+                    class="learn-more"
+                    onclick="openDropdown('BasketballManager')"
+                  >
+                    <span>Learn more</span>
+                    <i class="fas fa-chevron-down fa-2x"></i>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="flip-card" onclick="this.classList.toggle('flip')">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="./images/profile.jpg"
-                  alt="Website"
-                  style="border-radius: 50%"
-                />
-              </div>
-              <div class="flip-card-back">
-                <h1>Website</h1>
-                <p>Meet Ricardo Vieira!</p>
-                <div class="learn-more" onclick="openDropdown('Website')">
-                  <span>Learn more</span>
-                  <i class="fas fa-chevron-down fa-2x"></i>
+            <div class="flip-card" onclick="this.classList.toggle('flip')">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img
+                    src="./images/profile.jpg"
+                    alt="Website"
+                    style="border-radius: 50%"
+                  />
+                </div>
+                <div class="flip-card-back">
+                  <h1>Website</h1>
+                  <p>Meet Ricardo Vieira!</p>
+                  <div class="learn-more" onclick="openDropdown('Website')">
+                    <span>Learn more</span>
+                    <i class="fas fa-chevron-down fa-2x"></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div id="modal" class="modal"></div>
-        <div id="projectsDropdown" class="dropdown"></div>
       </section>
+      <div id="projectsDropdown" class="dropdown"></div>
+      <div id="modal" class="modal"></div>
     </main>
   </body>
 </html>
