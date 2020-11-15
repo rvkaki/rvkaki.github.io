@@ -53,7 +53,7 @@ const projects = {
   Website: {
     title: 'Website',
     info: [
-      'This is this website right here.',
+      'This website right here.',
       "I decided to build it using HTML, CSS, and JavaScript since it needn't be very complex. This way I am not dependent on some framework to build a web application",
       'It helped improve a lot my skills in CSS.',
     ],

@@ -12,7 +12,7 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  width: calc(100vw - 17px);
+  width: 100vw;
   color: var(--text);
   background: var(--bg);
   transition: background 0.5s ease-in-out, color 1s ease-in-out;
@@ -31,7 +31,7 @@ button {
 }
 
 header {
-  width: calc(100vw - 17px);
+  width: 100vw;
   margin: auto;
   height: 10vh;
   display: flex;
