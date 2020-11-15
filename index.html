@@ -18,6 +18,14 @@
       src="https://kit.fontawesome.com/36ca750eee.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      emailjs.init('user_6dopd1nhw18hUzjFOAwRz');
+    </script>
+    <script defer src="./scripts/email.js"></script>
     <title>Ricardo Vieira</title>
   </head>
 
@@ -30,6 +38,9 @@
         </li>
         <li class="list-link">
           <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="list-link">
+          <a href="#contact" class="nav-link">Contact</a>
         </li>
         <li class="list-link">
           <a class="nav-link" href="./CV_EN.pdf" target="_blank">Resume</a>
@@ -193,6 +204,29 @@
       </section>
       <div id="projectsDropdown" class="dropdown"></div>
       <div id="modal" class="modal"></div>
+      <section id="contact" class="contact">
+        <div class="contact-shape"></div>
+        <div class="contact-content">
+          <h1>Contact Me</h1>
+          <div id="form" class="contact-container">
+            <div class="styled-input">
+              <input name="user_name" type="text" required />
+              <label>Name</label>
+            </div>
+            <div class="styled-input">
+              <input name="user_email" type="text" required />
+              <label>Email</label>
+            </div>
+            <div class="styled-input">
+              <textarea name="user_message" required></textarea>
+              <label>Message</label>
+            </div>
+            <button type="submit" class="sendBtn" id="sendBtn" value="Send">
+              Send
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

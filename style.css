@@ -136,7 +136,8 @@ nav {
 .presentation,
 .about,
 .skills,
-.projects {
+.projects,
+.contact {
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -145,7 +146,8 @@ nav {
 .presentation-content,
 .about-content,
 .skills-content,
-.projects-content {
+.projects-content,
+.contact-content {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -159,7 +161,8 @@ nav {
 .presentation-shape,
 .about-shape,
 .skills-shape,
-.projects-shape {
+.projects-shape,
+.contact-shape {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -171,28 +174,28 @@ nav {
   clip-path: polygon(0% 10%, 50% 10%, 100% 50%, 50% 100%, 0% 100%);
 }
 
-.about-shape {
+.about-shape,
+.projects-shape {
   clip-path: polygon(0% 0%, 50% 0%, 0% 50%, 50% 100%, 0% 100%);
 }
 
-.projects-shape {
-  clip-path: polygon(0% 0%, 50% 0%, 0% 50%);
-}
-
-.skills-shape {
+.skills-shape,
+.contact-shape {
   clip-path: polygon(0% 0%, 50% 0%, 100% 50%, 50% 100%, 0% 100%);
 }
 
 body.dark .presentation-shape,
 body.dark .about-shape,
 body.dark .skills-shape,
-body.dark .projects-shape {
+body.dark .projects-shape,
+body.dark .contact-shape {
   background: var(--gray4);
 }
 
 .about-content,
 .skills-content,
-.projects-content {
+.projects-content,
+.contact-content {
   flex-direction: column;
   justify-content: center;
 }
@@ -455,6 +458,99 @@ body.dark .dropdown {
   align-self: center;
 }
 
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+}
+
+.styled-input {
+  width: 50%;
+  margin: 1rem 0;
+  position: relative;
+  border-radius: 4px;
+}
+
+.styled-input label {
+  color: var(--gray4);
+  position: absolute;
+  padding: 15px 20px;
+  left: 0;
+  font-size: 1.8rem;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+input,
+textarea {
+  padding: 15px 20px;
+  border: 0;
+  width: 100%;
+  font-size: 1.8rem;
+  background-color: var(--gray2);
+  color: black;
+  border-radius: 4px;
+}
+
+body.dark input,
+body.dark textarea {
+  background-color: var(--gray3);
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
+}
+
+input:focus ~ span,
+textarea:focus ~ span {
+  width: 100%;
+  -webkit-transition: all 0.075s ease;
+  transition: all 0.075s ease;
+}
+
+input:focus ~ label,
+textarea:focus ~ label,
+input:valid ~ label,
+textarea:valid ~ label {
+  font-size: 1rem;
+  color: #999;
+  top: -10px;
+  -webkit-transition: all 0.225s ease;
+  transition: all 0.225s ease;
+}
+
+textarea {
+  width: 100%;
+  min-height: 15em;
+}
+
+.sendBtn {
+  padding: 7px 35px;
+  border-radius: 1000px;
+  display: inline-block;
+  background-color: var(--gray5);
+  color: white;
+  font-size: 1.8rem;
+  box-shadow: 0 3px 5px 0 var(--shadow-color);
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  border: 0;
+}
+
+.sendBtn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 0 5px 5px 0 var(--shadow-color);
+}
+
+body.dark .sendBtn {
+  color: black;
+  background-color: var(--gray2);
+}
+
 /* Themes */
 
 :root {
@@ -561,7 +657,8 @@ body.dark .dropdown {
     clip-path: polygon(0% 50%, 50% 100%, 100% 50%, 100% 100%, 0% 100%);
   }
 
-  .skills-shape {
+  .skills-shape,
+  .contact-shape {
     clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 50%);
   }
 
@@ -616,13 +713,17 @@ body.dark .dropdown {
   .dropdown-content-images-container img {
     flex-basis: 21%;
   }
+
+  .styled-input {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 400px) {
   html {
     font-size: 40%;
   }
-  
+
   .flip-card {
     height: 187.5px;
     width: 150px;
