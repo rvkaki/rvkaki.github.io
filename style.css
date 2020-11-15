@@ -133,6 +133,53 @@ nav {
   animation-iteration-count: infinite;
 }
 
+.sidenav-btn {
+  visibility: hidden;
+  font-size: 3.5rem;
+  color: var(--gray5);
+  transition: transform 0.5s;
+}
+
+.sidenav-btn.clicked {
+  transform: rotate(90deg);
+}
+
+.sidenav {
+  visibility: hidden;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 10vh;
+  left: 0;
+  background-color: var(--gray2);
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.sidenav.open {
+  width: 50%;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--gray5);
+  display: block;
+  transition: 0.3s;
+}
+
+body.dark .sidenav {
+  background-color: var(--gray6);
+}
+
+body.dark .sidenav a,
+body.dark .sidenav-btn {
+  color: var(--gray2);
+}
+
 .presentation,
 .about,
 .skills,
@@ -461,12 +508,12 @@ body.dark .dropdown {
 .contact-container {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 50%;
   align-items: center;
 }
 
 .styled-input {
-  width: 50%;
+  width: 100%;
   margin: 1rem 0;
   position: relative;
   border-radius: 4px;
@@ -525,6 +572,25 @@ textarea:valid ~ label {
 textarea {
   width: 100%;
   min-height: 15em;
+}
+
+.btns-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-links a {
+  margin-right: 10px;
+  font-size: 4rem;
+  text-decoration: none;
+  color: var(--gray5);
+}
+
+body.dark .icon-links a {
+  color: var(--gray2);
 }
 
 .sendBtn {
@@ -714,7 +780,7 @@ body.dark .sendBtn {
     flex-basis: 21%;
   }
 
-  .styled-input {
+  .contact-container {
     width: 100%;
   }
 }
@@ -727,6 +793,15 @@ body.dark .sendBtn {
   .flip-card {
     height: 187.5px;
     width: 150px;
+  }
+
+  .sidenav-btn,
+  .sidenav {
+    visibility: visible;
+  }
+
+  .nav-links {
+    display: none;
   }
 }
 
