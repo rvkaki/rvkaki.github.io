@@ -458,14 +458,15 @@ body.dark .dropdown {
 .dropdown-content-images-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   margin-top: 15px;
 }
 
 .dropdown-content-images-container img {
-  flex: 1 0 13%;
+  flex: 1;
+  min-width: 13%;
   margin: 10px;
   transition: transform 0.4s;
 }
@@ -777,7 +778,7 @@ body.dark .sendBtn {
   }
 
   .dropdown-content-images-container img {
-    flex-basis: 21%;
+    min-width: 21%;
   }
 
   .contact-container {
