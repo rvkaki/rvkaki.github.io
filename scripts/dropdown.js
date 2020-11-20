@@ -10,7 +10,7 @@ const projects = {
     link: 'https://card-maker-react-app.herokuapp.com',
     images: [
       '../images/CardMaker/Twitter.png',
-      '../images/CardMaker/Genius.png'
+      '../images/CardMaker/Genius.png',
     ],
   },
   AniMovies: {
@@ -128,10 +128,23 @@ const openDropdown = (id) => {
   if (project.images) {
     const container = document.createElement('div');
     container.classList.add('dropdown-content-images-container');
+    let maxWidth;
+    switch (project.title) {
+      case 'CardMaker':
+        maxWidth = '50%';
+        break;
+      case 'AniMovies':
+        maxWidth = '33%';
+        break;
+      case 'BasketballManager':
+        maxWidth = '15%';
+        break;
+    }
     project.images.forEach((i) => {
       const img = document.createElement('img');
       img.src = i;
       img.alt = i.split('/').pop().split('.')[0];
+      img.style.maxWidth = maxWidth;
       img.addEventListener('click', openModal.bind(img));
       container.append(img);
     });

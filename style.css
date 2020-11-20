@@ -466,6 +466,7 @@ body.dark .dropdown {
 
 .dropdown-content-images-container img {
   flex: 1;
+  object-fit: contain;
   min-width: 13%;
   margin: 10px;
   transition: transform 0.4s;
