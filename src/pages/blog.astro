@@ -1,0 +1,50 @@
+---
+import MainLayout from "../layouts/MainLayout/index.astro";
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<!DOCTYPE html>
+<MainLayout>
+  <article
+    class="h-screen flex flex-col justify-center w-full px-20 max-w-5xl mx-auto"
+  >
+    <section>
+      <h2 class="text-lg text-zinc-300 font-semibold">Blog posts</h2>
+      <ul
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-2 mt-3"
+      >
+        {
+          posts.map((post) => (
+            <a href={post.url}>
+              <li class="w-full h-36 overflow-hidden flex flex-col gap-1 py-3 px-4 bg-opacity-5 bg-zinc-400 rounded-lg hover:bg-opacity-10">
+                <time
+                  datetime={post.frontmatter.pubDate}
+                  class="text-zinc-500 text-xs"
+                >
+                  {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                    "en-us",
+                    {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    }
+                  )}
+                </time>
+                <p>{post.frontmatter.title}</p>
+                <p class="text-sm text-zinc-400 overflow-ellipsis line-clamp-3">
+                  {post.frontmatter.description}
+                </p>
+              </li>
+            </a>
+          ))
+        }
+      </ul>
+    </section>
+  </article>
+</MainLayout>

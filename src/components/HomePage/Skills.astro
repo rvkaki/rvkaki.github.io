@@ -1,0 +1,127 @@
+---
+import Icon from "../../components/Icon.astro";
+
+const languages = [
+  {
+    label: "JavaScript",
+    icon: "javascript",
+  },
+  {
+    label: "HTML",
+    icon: "html",
+  },
+  {
+    label: "CSS",
+    icon: "css",
+  },
+  {
+    label: "TypeScript",
+    icon: "typescript",
+  },
+];
+
+const librariesAndFrameworks = [
+  {
+    label: "React",
+    icon: "react",
+  },
+  {
+    label: "Expo",
+    icon: "expo",
+  },
+  {
+    label: "NextJS",
+    icon: "nextjs",
+  },
+  {
+    label: "NodeJS",
+    icon: "node",
+  },
+  {
+    label: "ChakraUI",
+    icon: "chakra",
+  },
+  {
+    label: "Tanstack Query",
+    icon: "tanstack_query",
+  },
+  {
+    label: "Zod",
+    icon: "zod",
+  },
+  {
+    label: "Prisma",
+    icon: "prisma",
+  },
+];
+
+const other = [
+  {
+    label: "PostgreSQL",
+    icon: "postgres",
+  },
+  {
+    label: "Turborepo",
+    icon: "turborepo",
+  },
+  {
+    label: "Git",
+    icon: "git",
+  },
+  {
+    label: "VSCode",
+    icon: "vscode",
+  },
+];
+---
+
+<section
+  class="flex flex-col w-full h-screen gap-8 justify-center items-center"
+>
+  <h2 class="text-3xl dark:text-amber-300 text-amber-600 font-semibold">
+    The Tech I use
+  </h2>
+  <div class="w-full flex flex-col gap-5">
+    <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
+      Languages
+    </h3>
+    <div class="grid w-full grid-cols-4 gap-4">
+      {
+        languages.map(({ label, icon }) => (
+          <div class="flex flex-col items-center text-sm">
+            <Icon icon={icon} class="w-14 h-14" />
+            <span class="dark:text-zinc-200 mt-1">{label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="w-full flex flex-col gap-5">
+    <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">
+      Libraries & Frameworks
+    </h3>
+    <div class="grid w-full grid-cols-4 gap-4">
+      {
+        librariesAndFrameworks.map(({ label, icon }) => (
+          <div class="flex flex-col items-center text-sm">
+            <Icon icon={icon} class="w-14 h-14" />
+            <span class="dark:text-zinc-200 mt-1">{label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="w-full flex flex-col gap-5">
+    <h3 class="text-xl font-semibold text-zinc-900 dark:text-zinc-50">More</h3>
+    <div class="grid w-full grid-cols-4 gap-4">
+      {
+        other.map(({ label, icon }) => (
+          <div class="flex flex-col items-center text-sm">
+            <Icon icon={icon} class="w-14 h-14" />
+            <span class="dark:text-zinc-200 mt-1">{label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+import Icon from "../../components/Icon.astro";
+
+const theme = localStorage.getItem("theme");
+const isLight = theme && theme === "light";
+---
+
+<button id="themeToggle">
+  <Icon
+    id="lightIcon"
+    icon="sun"
+    class={`dark:stroke-zinc-400 stroke-zinc-500 dark:hover:stroke-amber-400 hover:stroke-amber-700 hover:scale-110 transition-all w-5 h-5 cursor-pointer hover:rotate-180 ${
+      isLight ? "hidden" : ""
+    }`}
+  />
+  <Icon
+    id="darkIcon"
+    icon="moon"
+    class={`dark:stroke-zinc-400 stroke-zinc-500 dark:hover:stroke-amber-400 hover:stroke-amber-700 hover:scale-110 transition-all w-5 h-5 cursor-pointer ${
+      isLight ? "" : "hidden"
+    }`}
+  />
+</button>
+
+<script>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+
+  if (theme) {
+    window.localStorage.setItem("theme", theme);
+  }
+
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    const darkIcon = document.getElementById("darkIcon");
+    const lightIcon = document.getElementById("lightIcon");
+
+    element.classList.toggle("dark");
+    const isDark = element.classList.contains("dark");
+    if (isDark) {
+      darkIcon!.style.display = "none";
+      lightIcon!.style.display = "block";
+    } else {
+      darkIcon!.style.display = "block";
+      lightIcon!.style.display = "none";
+    }
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  };
+
+  document
+    ?.getElementById("themeToggle")
+    ?.addEventListener("click", handleToggleClick);
+</script>

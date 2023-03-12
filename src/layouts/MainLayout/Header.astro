@@ -1,0 +1,16 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header
+  class="fixed top-0 left-0 py-2 sm:py-4 px-3 sm:px-7 flex flex-col items-start w-full dark:bg-zinc-900 bg-zinc-200"
+>
+  <nav class="flex justify-start items-center gap-3">
+    <HeaderLink href="/">RV</HeaderLink>
+    <span class="w-12 h-[2px] dark:bg-zinc-700 bg-zinc-500"></span>
+    <!-- <HeaderLink href="/blog">Blog</HeaderLink>
+    <span class="w-4 h-[2px] dark:bg-zinc-700 bg-zinc-500"></span> -->
+    <HeaderLink href="/curriculum.pdf">Resume</HeaderLink>
+    <span class="w-12 h-[2px] dark:bg-zinc-700 bg-zinc-500"></span>
+  </nav>
+</header>
