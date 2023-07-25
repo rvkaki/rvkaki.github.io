@@ -7,10 +7,10 @@ const career_info = {
     link: "https://exeedme.com",
     short_role: "Lead Frontend Developer",
     long_role: "Lead Frontend Developer",
-    short_date_range: "2021 - Present",
-    long_date_range: "April, 2021 - Present",
+    short_date_range: "2021 - 2023",
+    long_date_range: "April, 2021 - July, 2023",
     description:
-      "I left Coletiv to come work at Exeedme, a web3 company building products for gamers. In my time here I had the opportunity to work with a lot of different technologies. I started building Exeedme's platform using React and ChakraUI, built user interfaces to interact with contracts on the blockchain.",
+      "I left Coletiv to go work at Exeedme, a web3 company building products for gamers. In my time there I had the opportunity to work with a lot of different technologies. I started building Exeedme's platform using React and ChakraUI, built user interfaces to interact with contracts on the blockchain.",
   },
   Coletiv: {
     company: "Coletiv",
