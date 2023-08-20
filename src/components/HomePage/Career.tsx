@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TimelineStep from "./TimelineStep";
+import Icon from "../Icon.astro";
 
 const career_info = {
   Exeedme: {
@@ -10,7 +11,7 @@ const career_info = {
     short_date_range: "2021 - 2023",
     long_date_range: "April, 2021 - July, 2023",
     description:
-      "I left Coletiv to go work at Exeedme, a web3 company building products for gamers. In my time there I had the opportunity to work with a lot of different technologies. I started building Exeedme's platform using React and ChakraUI, built user interfaces to interact with contracts on the blockchain.",
+      "I left Coletiv to go work at Exeedme, a web3 company building products for gamers. In my time there I had the opportunity to work with a lot of different technologies. I built Exeedme's platform and XKIT using React (later NextJS) and ChakraUI and developed user interfaces to interact with smart contracts on the blockchain.",
   },
   Coletiv: {
     company: "Coletiv",
@@ -51,12 +52,12 @@ export default function Career() {
   const current = career_info[order[curIndex]];
 
   return (
-    <section className="w-full h-screen py-24 gap-12 flex flex-col items-center">
+    <section className="w-full h-screen py-24 gap-12 flex flex-col items-center px-3 md:px-0">
       <h2 className="text-3xl dark:text-amber-300 text-amber-600 font-semibold">
         Experience
       </h2>
-      <div className="flex-1 flex w-full gap-16 items-center">
-        <div className="flex flex-col h-full w-fit">
+      <div className="flex-1 flex flex-col md:flex-row w-full gap-16 items-center">
+        <div className="flex md:flex-col h-full md:w-fit w-full overflow-x-auto">
           {order.map((item, idx) => (
             <TimelineStep
               key={item}
@@ -88,7 +89,7 @@ export default function Career() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex md:flex-col flex-row gap-4">
           <button
             disabled={curIndex === 0}
             className="dark:text-zinc-200 text-zinc-600 dark:disabled:text-zinc-600 disabled:text-zinc-400 text-2xl disabled:cursor-not-allowed dark:hover:text-amber-300 hover:text-amber-600 hover:scale-125"
@@ -96,6 +97,7 @@ export default function Career() {
           >
             {/* Arrow Up */}
             <svg
+              className="hidden md:block"
               stroke="currentColor"
               fill="currentColor"
               strokeWidth="0"
@@ -105,6 +107,18 @@ export default function Career() {
             >
               <path d="M868 545.5L536.1 163a31.96 31.96 0 0 0-48.3 0L156 545.5a7.97 7.97 0 0 0 6 13.2h81c4.6 0 9-2 12.1-5.5L474 300.9V864c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V300.9l218.9 252.3c3 3.5 7.4 5.5 12.1 5.5h81c6.8 0 10.5-8 6-13.2z"></path>
             </svg>
+            {/* Arrow Left */}
+            <svg
+              className="md:hidden"
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 1024 1024"
+              height="1em"
+              width="1em"
+            >
+              <path d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path>
+            </svg>
           </button>
           <button
             disabled={curIndex === order.length - 1}
@@ -113,6 +127,7 @@ export default function Career() {
           >
             {/* Arrow Down */}
             <svg
+              className="hidden md:block"
               stroke="currentColor"
               fill="currentColor"
               strokeWidth="0"
@@ -121,6 +136,18 @@ export default function Career() {
               width="1em"
             >
               <path d="M862 465.3h-81c-4.6 0-9 2-12.1 5.5L550 723.1V160c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v563.1L255.1 470.8c-3-3.5-7.4-5.5-12.1-5.5h-81c-6.8 0-10.5 8.1-6 13.2L487.9 861a31.96 31.96 0 0 0 48.3 0L868 478.5c4.5-5.2.8-13.2-6-13.2z"></path>
+            </svg>
+            {/* Arrow Right */}
+            <svg
+              className="md:hidden"
+              stroke="currentColor"
+              fill="currentColor"
+              strokeWidth="0"
+              viewBox="0 0 1024 1024"
+              height="1em"
+              width="1em"
+            >
+              <path d="M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h-88.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h585.1L386.9 854c-5.6 4.9-2.2 14 5.2 14h91.5c1.9 0 3.8-.7 5.2-2L869 536.2a32.07 32.07 0 0 0 0-48.4z"></path>
             </svg>
           </button>
         </div>

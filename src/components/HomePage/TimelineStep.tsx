@@ -13,12 +13,12 @@ export default function TimelineStep({
 }) {
   return (
     <div
-      className="flex-1 flex py-[2px] gap-1 items-center cursor-pointer"
+      className="flex-1 flex flex-col md:flex-row py-[2px] gap-1 items-center cursor-pointer min-w-[120px] md:min-w-0"
       onClick={onClick}
     >
-      <div className="h-full flex flex-col items-center">
+      <div className="md:h-full w-full md:w-auto flex flex-row md:flex-col items-center">
         <span
-          className={`w-[2px] h-full ${
+          className={`md:w-[2px] w-full md:h-full h-[2px] ${
             isActive
               ? "dark:bg-amber-400 bg-amber-600"
               : "dark:bg-zinc-600 bg-zinc-400"
