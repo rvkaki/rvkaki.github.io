@@ -13,6 +13,15 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <BaseHead title={title as string} description={description} />
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SLP89W370L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-SLP89W370L');
+  </script>
   <body
     class="dark:bg-zinc-900 bg-zinc-200 h-full w-full m-auto flex flex-col overflow-auto"
   >
