@@ -2,6 +2,7 @@
 import Career from "../components/HomePage/Career";
 import Contact from "../components/HomePage/Contact.astro";
 import Hero from "../components/HomePage/Hero.astro";
+import Projects from "../components/HomePage/Projects";
 // import Skills from "../components/HomePage/Skills.astro";
 import MainLayout from "../layouts/MainLayout/index.astro";
 ---
@@ -12,6 +13,7 @@ import MainLayout from "../layouts/MainLayout/index.astro";
   >
     <Hero />
     <Career client:load />
+    <Projects client:load />
     <!-- <Skills /> -->
     <Contact />
   </article>

@@ -1,8 +1,17 @@
 import { useState } from "react";
 import TimelineStep from "./TimelineStep";
-import Icon from "../Icon.astro";
 
 const career_info = {
+  ForcaTech: {
+    company: "ForcaTech Agency",
+    link: "https://forcatechagency.com/",
+    short_role: "Fullstack Developer",
+    long_role: "Fullstack Developer",
+    short_date_range: "2024 - Present",
+    long_date_range: "May, 2024 - Present",
+    description:
+      "I'm currently working at ForcaTech Agency as a Fullstack Developer. I'm responsible for building websites and web applications for clients using the T3 stack.",
+  },
   Exeedme: {
     company: "Exeedme",
     link: "https://exeedme.com",
@@ -45,7 +54,13 @@ const career_info = {
   },
 };
 
-const order = ["Exeedme", "Coletiv", "Sprint", "University"] as const;
+const order = [
+  "ForcaTech",
+  "Exeedme",
+  "Coletiv",
+  "Sprint",
+  "University",
+] as const;
 
 export default function Career() {
   const [curIndex, setCurIndex] = useState(0);
