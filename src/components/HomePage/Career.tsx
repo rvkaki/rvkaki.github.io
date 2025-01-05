@@ -7,10 +7,10 @@ const career_info = {
     link: "https://forcatechagency.com/",
     short_role: "Fullstack Developer",
     long_role: "Fullstack Developer",
-    short_date_range: "2024 - Present",
-    long_date_range: "May, 2024 - Present",
+    short_date_range: "2024 - 2025",
+    long_date_range: "May, 2024 - Jan, 2025",
     description:
-      "I'm currently working at ForcaTech Agency as a Fullstack Developer. I'm responsible for building websites and web applications for clients using the T3 stack.",
+      "During my time at ForcaTech, I worked on a fintech platform where I evolved from a frontend-focused role into full stack development. Using NextJS and TypeScript, I created complex data visualization components and built automated processing pipelines for financial analytics. As the platform grew, I contributed to our backend migration to NestJS, implementing both client and server-side features. Working remotely in an agile team, I collaborated directly with international clients to deliver robust technology solutions.",
   },
   Exeedme: {
     company: "Exeedme",
