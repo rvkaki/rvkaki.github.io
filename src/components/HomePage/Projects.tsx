@@ -4,7 +4,21 @@ import GithubIcon from "../icons/github";
 
 const projects = [
   {
-    title: "soccerstats",
+    title: "BoxScoreWatch",
+    description:
+      "A web app that allows users to understand what happened in an NBA game beyond what the traditional box score makes available.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "D3.js", "MongoDB"],
+    images: [
+      "/boxscorewatch-screenshot-1.png",
+      "/boxscorewatch-screenshot-2.png",
+    ],
+    links: {
+      github: "https://github.com/rvkaki/boxscorewatch",
+      external: "https://boxscorewatch.rjvieira.com",
+    },
+  },
+  {
+    title: "SoccerStats",
     description:
       "A web app that allows users to analyze stats from soccer matches and export data visualizations.",
     techStack: [
@@ -19,17 +33,6 @@ const projects = [
     links: {
       github: "https://github.com/rvkaki/soccerstats",
       external: "https://soccerstats.rjvieira.com",
-    },
-  },
-  {
-    title: "nbastats",
-    description:
-      "A web app that allows users to analyze stats from NBA matches, teams and players.",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Konva.js"],
-    images: ["/nbastats-screenshot-1.png", "/nbastats-screenshot-2.png"],
-    links: {
-      github: "https://github.com/rvkaki/nbastats",
-      external: "https://nbastats.rjvieira.com",
     },
   },
 ];
