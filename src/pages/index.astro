@@ -1,20 +1,153 @@
 ---
-import Career from "../components/HomePage/Career";
-import Contact from "../components/HomePage/Contact.astro";
-import Hero from "../components/HomePage/Hero.astro";
-import Projects from "../components/HomePage/Projects";
-// import Skills from "../components/HomePage/Skills.astro";
-import MainLayout from "../layouts/MainLayout/index.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import { education, experience, intro, site, toolkit, work } from "../data/content";
 ---
 
 <MainLayout>
-  <article
-    class="flex flex-col justify-center w-full px-8 sm:px-20 max-w-5xl mx-auto"
-  >
-    <Hero />
-    <Career client:load />
-    <Projects client:load />
-    <!-- <Skills /> -->
-    <Contact />
-  </article>
+  <header class="masthead">
+    <h1>Ricardo<br />Vieira</h1>
+  </header>
+
+  <div class="strip">
+    <span>{site.role}</span>
+    <span>{site.location}</span>
+    <span class="accent">Available for work</span>
+  </div>
+
+  <p class="standfirst">{intro.standfirst}</p>
+
+  <div class="lede">
+    {intro.body.map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+
+  <h2 class="kicker">Selected work</h2>
+
+  {
+    work.map((item) => (
+      <article class="entry">
+        <h3>{item.title}</h3>
+        <p class="byline">
+          {item.period}
+          {item.note && ` · ${item.note}`}
+        </p>
+
+        <div class="split">
+          <div>
+            {item.body.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+
+            {item.detail && (
+              <ul class="detail">
+                {item.detail.map((line) => (
+                  <li>{line}</li>
+                ))}
+              </ul>
+            )}
+
+            {item.figures && (
+              <div class="figure-row">
+                {item.figures.map((figure) => (
+                  <div>
+                    <b>{figure.value}</b>
+                    <span>{figure.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <ul class="entry-links">
+              {item.links.map((link) => (
+                <li>
+                  <a href={link.href} target="_blank" rel="noopener">{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            {item.image && (
+              <figure>
+                <img
+                  src={item.image.src}
+                  alt={item.image.alt}
+                  width="1920"
+                  height="1200"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>{item.image.caption}</figcaption>
+              </figure>
+            )}
+            {item.snippet && <pre><code>{item.snippet}</code></pre>}
+          </div>
+        </div>
+      </article>
+    ))
+  }
+
+  <h2 class="kicker">Experience</h2>
+
+  {
+    experience.map((role) => (
+      <div class="record">
+        <div class="record-when">
+          {role.period} · {role.place}
+        </div>
+        <div>
+          <h3>
+            {role.role},{" "}
+            {role.href ? (
+              <a href={role.href} target="_blank" rel="noopener">{role.org}</a>
+            ) : (
+              role.org
+            )}
+          </h3>
+          <p>{role.body}</p>
+        </div>
+      </div>
+    ))
+  }
+
+  <h2 class="kicker">Education</h2>
+
+  {
+    education.map((item) => (
+      <div class="record">
+        <div class="record-when">{item.period}</div>
+        <div>
+          <h3>{item.title}</h3>
+          <p>
+            <a href={item.href} target="_blank" rel="noopener">{item.org}</a>{item.detail
+              ? `. ${item.detail}.`
+              : "."}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+
+  <h2 class="kicker">What I work with</h2>
+
+  <dl class="toolkit">
+    {
+      toolkit.map((group) => (
+        <div>
+          <dt>{group.heading}</dt>
+          <dd>{group.body}</dd>
+        </div>
+      ))
+    }
+  </dl>
+
+  <h2 class="kicker">Contact</h2>
+
+  <div class="contact">
+    <p>
+      Email me at <a href={`mailto:${site.email}`}>{site.email}</a>, or find me on
+      <a href={site.linkedin} target="_blank" rel="noopener">LinkedIn</a> and
+      <a href={site.github} target="_blank" rel="noopener">GitHub</a>. The
+      <a href={site.cv}>CV is here</a>.
+    </p>
+  </div>
 </MainLayout>

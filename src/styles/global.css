@@ -1,18 +1,442 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+/* Sports-desk layout: Archivo for display and furniture, Spectral for reading. */
 
-html,
-body {
-  height: 100%;
-  width: 100%;
+:root {
+  --paper: #fbfaf8;
+  --ink: #141312;
+  --muted: #6b6862;
+  --rule: #d6d3cd;
+  --rule-heavy: #141312;
+  --accent: #c8102e;
+  --panel: #f1efe9;
+  --shot-bg: #0e0e0d;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #171614;
+    --ink: #f2f0ea;
+    --muted: #9c988e;
+    --rule: #37342d;
+    --rule-heavy: #f2f0ea;
+    --accent: #fa5162;
+    --panel: #201e1b;
+    --shot-bg: #000000;
+
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: Verdana, sans-serif;
-  margin: auto;
-  padding: 20px;
-  max-width: 1080px;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Spectral, Georgia, "Times New Roman", serif;
+  font-size: 1.0625rem;
+  line-height: 1.58;
+}
+
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 4rem;
+}
+
+@media (min-width: 48em) {
+  body {
+    font-size: 1.0625rem;
+  }
+
+  .wrap {
+    padding: 2.75rem 3rem 5rem;
+  }
+}
+
+/* Display furniture ----------------------------------------------------- */
+
+.display,
+h1,
+h2,
+h3,
+.kicker,
+.strip,
+.byline,
+.figure-row,
+figcaption,
+.entry-links,
+.table-head,
+.tag {
+  font-family: Archivo, system-ui, "Helvetica Neue", sans-serif;
+}
+
+.masthead {
+  border-bottom: 6px solid var(--rule-heavy);
+  padding-bottom: 0.4rem;
+}
+
+.masthead h1 {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(3.1rem, 12.5vw, 6.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--rule-heavy);
+  padding: 0.45rem 0 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.strip .accent {
+  color: var(--accent);
+}
+
+/* Standfirst and lede --------------------------------------------------- */
+
+.standfirst {
+  margin: 1.6rem 0 0;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  line-height: 1.32;
+  font-weight: 600;
+  max-width: 30ch;
+  text-wrap: balance;
+}
+
+.lede {
+  margin-top: 1.4rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.lede p {
+  margin: 0 0 0.85em;
+}
+
+.lede p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 48em) {
+  .lede {
+    columns: 2;
+    column-gap: 2.75rem;
+  }
+}
+
+/* Section kickers ------------------------------------------------------- */
+
+.kicker {
+  margin: 2.5rem 0 1.1rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Work entries ---------------------------------------------------------- */
+
+.entry {
+  padding-bottom: 2.25rem;
+  margin-bottom: 2.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.entry:last-of-type {
+  border-bottom: 0;
+}
+
+.entry h3 {
+  margin: 0;
+  font-weight: 800;
+  font-size: clamp(1.85rem, 4.6vw, 2.75rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+}
+
+.byline {
+  margin: 0.55rem 0 0.9rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.entry p {
+  margin: 0 0 0.8em;
+  text-wrap: pretty;
+}
+
+.split {
+  display: grid;
+  gap: 1.75rem;
+}
+
+/* Grid children default to min-width:auto, which lets the code block's
+   intrinsic width push the column past the viewport. */
+.split > *,
+.record > * {
+  min-width: 0;
+}
+
+@media (min-width: 56em) {
+  .split {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.25rem;
+    align-items: start;
+  }
+}
+
+/* The modelling detail under Pitchwatch. */
+.detail {
+  margin: 0 0 0.9em;
+  padding-left: 1.05rem;
+}
+
+.detail li {
+  margin-bottom: 0.55em;
+}
+
+.detail li::marker {
+  color: var(--accent);
+}
+
+/* Figures row ----------------------------------------------------------- */
+
+.figure-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.75rem;
+  margin-top: 1.1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule);
+}
+
+.figure-row b {
+  display: block;
+  font-weight: 800;
+  font-size: 1.6rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.figure-row span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Media ----------------------------------------------------------------- */
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule-heavy);
+  background: var(--shot-bg);
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.6875rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+pre {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+}
+
+pre,
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Links ----------------------------------------------------------------- */
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.entry-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Experience and education, set as a results table ---------------------- */
+
+.record {
+  display: grid;
+  gap: 0.2rem 1.5rem;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.record:first-of-type {
+  border-top: 2px solid var(--rule-heavy);
+}
+
+@media (min-width: 48em) {
+  .record {
+    grid-template-columns: 13rem 1fr;
+  }
+}
+
+.record-when {
+  font-family: Archivo, system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.3rem;
+}
+
+.record h3 {
+  margin: 0;
+  font-family: Archivo, system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.record p {
+  margin: 0.4rem 0 0;
+  text-wrap: pretty;
+}
+
+/* Toolkit --------------------------------------------------------------- */
+
+.toolkit {
+  display: grid;
+  gap: 1.5rem 2.5rem;
+  margin: 0;
+  border-top: 2px solid var(--rule-heavy);
+  padding-top: 1.1rem;
+}
+
+@media (min-width: 48em) {
+  .toolkit {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.toolkit dt {
+  font-family: Archivo, system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.toolkit dd {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+/* Contact and footer ---------------------------------------------------- */
+
+.contact {
+  border-top: 6px solid var(--rule-heavy);
+  padding-top: 1.1rem;
+}
+
+.contact p {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  line-height: 1.4;
+  max-width: 34ch;
+}
+
+footer {
+  margin-top: 2.5rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.5rem;
+  justify-content: space-between;
+  font-family: Archivo, system-ui, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+footer p {
+  margin: 0;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.5rem 0.9rem;
+  background: var(--paper);
+  border: 1px solid var(--rule-heavy);
 }

@@ -1,7 +1,7 @@
 {
-  "name": "@example/blog",
+  "name": "rjvieira.com",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -11,21 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.14.0",
-    "@astrojs/react": "^1.2.2",
-    "@astrojs/rss": "^2.0.0",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/tailwind": "^2.1.3",
-    "@types/react": "^18.0.26",
-    "@types/react-dom": "^18.0.10",
-    "astro": "^1.9.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^3.2.4"
-  },
-  "devDependencies": {
-    "@fec/remark-a11y-emoji": "^3.1.0",
-    "@tailwindcss/line-clamp": "^0.4.2",
-    "node-html-parser": "^6.1.4"
+    "astro": "^1.9.0"
   }
 }
