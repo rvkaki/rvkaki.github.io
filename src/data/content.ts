@@ -73,15 +73,26 @@ export const work: Work[] = [
     ],
     snippet: `pip install tvi-footballindex
 
-from tvi_footballindex import tvi
+import pandas as pd
+from tvi_footballindex.parsing import f24_parser
+from tvi_footballindex.tvi import calculator
 
-scores = tvi.compute(
-    events,          # Opta event frame
-    zones="functional_6",
-    actions=DEFAULT_ACTIONS,
-    weighting="inverse_p95",
-)
-# one score per player per 90, bounded between 0 and 1`,
+events = f24_parser.parsef24_folder("data/F24")
+play_time = f24_parser.calculate_player_playtime(events, min_playtime=30)
+
+actions = pd.concat([
+    f24_parser.get_interceptions(events),
+    f24_parser.get_tackles(events),
+    f24_parser.get_aerials(events),
+    f24_parser.get_progressive_passes(events),
+    f24_parser.get_dribbles(events),
+    f24_parser.get_key_passes(events),
+    f24_parser.get_deep_completions(events),
+    f24_parser.get_shots_on_target(events),
+])
+
+tvi_df, quantiles = calculator.calculate_tvi(actions, play_time)
+# TVI, TVI_entropy and shannon_entropy, per player per game`,
     links: [
       { label: "tvi-footballindex on PyPI", href: "https://pypi.org/project/tvi-footballindex/" },
     ],
